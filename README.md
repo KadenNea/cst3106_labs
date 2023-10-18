@@ -24,14 +24,12 @@ Detailed rules and scoring categories can be found [here](https://en.wikipedia.o
 - Primary Color: #FF5733 (Orange)
 - Secondary Color: #3498DB (Blue)
 
-**Rationale**: We chose these colors to provide a visually appealing and engaging gaming experience. Orange signifies excitement, while blue provides a calming effect, creating a balanced atmosphere for the game.
 
 ### Fonts
 - Heading Font: "Raleway", sans-serif
 - Subheading Font: "Open Sans", sans-serif
 - Body Text Font: "Roboto", sans-serif
 
-**Rationale**: These fonts were selected for their readability and modern appearance, enhancing the overall user experience.
 
 ## Dice Design
 
