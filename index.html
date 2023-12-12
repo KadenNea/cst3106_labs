@@ -1,1 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dice Roll</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+            body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(45deg, #6dd5ed, #2193b0);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
+        #diceContainer {
+            display: grid;
+            place-items: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .die {
+            width: 120px;
+            height: 120px;
+            display: grid;
+            grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+            place-items: center;
+            border: 3px solid #333;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+            animation: roll 1s ease-in-out;
+        }
+
+        @keyframes roll {
+            from { transform: rotateX(0) rotateY(0); }
+            to { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        .dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: #333;
+            visibility: hidden;
+        }
+
+        #rollDiceButton {
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: #ff5722;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+
+        #dice {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 30px;
+        }
+
+        .spin-animation {
+            animation: spin 1s ease-out;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(1080deg); }
+        }
+
+        #roll-button {
+            color: black;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: 600;
+            background-color: #a688fa;
+            display: block;
+            height: 45px;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 30px;
+            border: none;
+            outline: none;
+            transition: all 0.3s;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+        }
+
+        #dice-container.flipped {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+
+<div id="flip-container">
+    <div id="dice-container">
+        <div id="dice-front">
+            <div id="dice-board">
+                <img id="dice" src="Assets/Die6.png" alt="Dice">
+                <button id="roll-button">Roll Dice</button>
+            </div>
+        </div>
+        <div id="dice-back">
+            <p>Made by Aidan</p>
+            <p>2023</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var isSpinning = false;
+
+        // Roll button click functionality
+        $('#roll-button').click(function() {
+            if (!isSpinning) {
+                isSpinning = true;
+                var dice = $('#dice');
+                dice.addClass('spin-animation');
+
+                // Change the dice image mid-spin
+                setTimeout(function() {
+                    var randomNumber = Math.floor(Math.random() * 6) + 1;
+                    dice.attr('src', 'Assets/Die' + randomNumber + '.png');
+                }, 500); // Change the image halfway through the spin
+
+                // End of the spin
+                setTimeout(function() {
+                    dice.removeClass('spin-animation');
+                    isSpinning = false;
+                }, 1000);
+            }
+        });
+
+        // Flip functionality for the dice container
+        $('#dice-container').click(function(e) {
+            var width = $(this).width();
+            var height = $(this).height();
+            var x = e.offsetX;
+            var y = e.offsetY;
+
+            if (x > width / 2 && y > height / 2) {
+                $(this).toggleClass('flipped');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
