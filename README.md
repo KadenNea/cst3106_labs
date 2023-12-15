@@ -18,6 +18,10 @@ This document outlines the design system for the Hospital Triage app, focusing o
 ### Usage in App Sections
 - **User's Page**: Blue for headers, White background
 - **Admin Page**: Grey for headers, Light Blue accents
+  
+### Structural Layout
+-Emphasizing a mobile-first, responsive design with a grid layout adaptable to various screen sizes.
+-Intuitive navigation, with a stationary top navigation bar on mobile devices and a vertical side bar for desktop usage, ensuring essential functions are always accessible.
 
 ### Colour Significance
 - Blue conveys trust and reliability, essential in a healthcare app. Grey and Light Blue provide a calm and professional look.
@@ -31,10 +35,7 @@ This document outlines the design system for the Hospital Triage app, focusing o
 ### Design Choices
 - Designed for ease of use and accessibility, ensuring users can navigate the app efficiently, especially in emergency situations.
 
-### Layout Structure
-- Simple, intuitive layout
-
-### Navigation Flow
-- Streamlined navigation to minimize the number of taps required to access critical features.
+### Functional aspects
+-The web app, built using React, will facilitate efficient submission and processing of medical information. It's designed for dynamic healthcare settings, emphasizing speed and clarity.
 
 
